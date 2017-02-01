@@ -44,4 +44,3 @@ func StartServer(port int) {
     grpcServer.Serve(lis)
 }
 
-//go:generate protoc -I=../eventium -I=$PROTO_PATH ../eventium/eventium.proto --go_out=plugins=grpc:eventium
