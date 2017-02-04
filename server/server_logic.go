@@ -5,24 +5,24 @@ package server
  */
 
 import (
-	"github.com/marcusljx/eventium/eventium"
+	"github.com/marcusljx/eventium/eventiumpb"
 	"golang.org/x/net/context"
 )
 
 
-func (s *eventiumLogic) PostEvent(ctx context.Context, req *eventium.PostEventRequest) (*eventium.PostEventResponse, error) {
+func (s *eventiumLogic) PostEvent(ctx context.Context, req *eventiumpb.PostEventRequest) (*eventiumpb.PostEventResponse, error) {
     //TODO: Implement logic for eventiumLogic.PostEvent
     return nil, nil
 }
 
 
-func (s *eventiumLogic) GetEventByID(ctx context.Context, req *eventium.GetEventByIDRequest) (*eventium.Eventum, error) {
+func (s *eventiumLogic) GetEventByID(ctx context.Context, req *eventiumpb.GetEventByIDRequest) (*eventiumpb.Eventum, error) {
     //TODO: Implement logic for eventiumLogic.GetEventByID
     return nil, nil
 }
 
 
-func (s *eventiumLogic) GetEventByNearbyLocation(ctx context.Context, req *eventium.Location) (*eventium.Eventum, error) {
+func (s *eventiumLogic) GetEventByNearbyLocation(ctx context.Context, req *eventiumpb.Location) (*eventiumpb.Eventum, error) {
     //TODO: Implement logic for eventiumLogic.GetEventByNearbyLocation
     return nil, nil
 }

@@ -10,11 +10,13 @@ import (
     "google.golang.org/grpc"
     "google.golang.org/grpc/grpclog"
 
-    "github.com/marcusljx/eventium/eventium"
+    "github.com/marcusljx/eventium/eventiumpb"
+	"log"
 )
 
 type eventiumLogic struct {}
 
+// StartServer begins the service listener
 func StartServer(port int) {
     // Set up listener
     lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
@@ -37,10 +39,13 @@ func StartServer(port int) {
     grpcServer := grpc.NewServer()
 
     // Hook protobuf-created interface to logic handler
-    eventium.RegisterEventiumServer(grpcServer, &eventiumLogic{})
+    eventiumpb.RegisterEventiumServer(grpcServer, &eventiumLogic{})
 
     // Start service
     grpclog.Printf("Starting server on %s", lis.Addr())
-    grpcServer.Serve(lis)
+
+	if err := grpcServer.Serve(lis); err != nil {
+		log.Fatalf("Service quit unexpectedly: %v", err)
+	}
 }
 

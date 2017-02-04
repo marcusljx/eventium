@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-package eventium;
+package eventiumpb;
 
 service Eventium {
     rpc PostEvent(PostEventRequest) returns (PostEventResponse) {}

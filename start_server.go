@@ -18,4 +18,4 @@ func main() {
 	server.StartServer(*port)
 }
 
-//go:generate protoc -I=./eventium -I=$PROTO_PATH ./eventium/eventium.proto --go_out=plugins=grpc:eventium
+//go:generate protoc -I=./eventiumpb -I=$PROTO_PATH ./eventiumpb/eventium.proto --go_out=plugins=grpc:eventiumpb
