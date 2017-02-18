@@ -34,7 +34,6 @@ func establishClientConnection(address string) *grpc.ClientConn {
 
 func TestMain(m *testing.M) {
 	// Start server
-	//comms := make(chan trigger.Comm)
 	log.Print("Starting server...")
 	// Start and wait for server
 	go server.StartServer(testServerPort, dbHandler)

@@ -8,7 +8,6 @@ package main
 import (
 	"flag"
 
-	"github.com/marcusljx/eventium/commons/trigger"
 	"github.com/marcusljx/eventium/server"
 	"github.com/marcusljx/eventium/server/db"
 )
@@ -19,7 +18,7 @@ var (
 
 func main() {
 	flag.Parse()
-	server.StartServer(*port, make(db.LocalDB), make(chan trigger.Comm))
+	server.StartServer(*port, make(db.LocalDB))
 }
 
-//go:generate protoc -I=./eventiumpb -I=$PROTO_PATH/lib ./eventiumpb/eventium.proto --go_out=plugins=grpc:eventiumpb
+//go:generate protoc -I=./eventiumpb -I=$PROTOC/include ./eventiumpb/eventium.proto --go_out=plugins=grpc:eventiumpb
