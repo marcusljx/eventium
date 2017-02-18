@@ -10,7 +10,7 @@ go:
 #  - #any supported service
 #
 env:
-  - PROTOBUF_DL_URL=https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip PROTOC_PATH=~/protoc
+  - PROTOBUF_DL_URL=https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip PROTOC=~/protoc
 
 #matrix:
 
@@ -25,8 +25,8 @@ build:
 
   ci:
     - wget $PROTOBUF_DL_URL
-    - unzip protoc-* -d $PROTOC_PATH
-    - export PATH=$PATH:$PROTOC_PATH/bin
+    - unzip protoc-* -d $PROTOC
+    - export PATH=$PATH:$PROTOC/bin
 
     - go get -u -v google.golang.org/grpc
     - go get -u -v github.com/golang/protobuf/{proto,protoc-gen-go}

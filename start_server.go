@@ -22,4 +22,4 @@ func main() {
 	server.StartServer(*port, make(db.LocalDB), make(chan trigger.Comm))
 }
 
-//go:generate protoc -I=./eventiumpb -I=$PROTO_PATH ./eventiumpb/eventium.proto --go_out=plugins=grpc:eventiumpb
+//go:generate protoc -I=./eventiumpb -I=$PROTO_PATH/lib ./eventiumpb/eventium.proto --go_out=plugins=grpc:eventiumpb
