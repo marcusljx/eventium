@@ -9,8 +9,7 @@ go:
 #services:
 #  - #any supported service
 #
-env:
-  - PATH=$PATH:$GOPATH/bin
+#env:
 
 #matrix:
 
@@ -24,7 +23,7 @@ build:
 #    options:
 
   ci:
-    - echo $PATH
+    - export PATH=$PATH:$GOPATH/bin
     - go get -u google.golang.org/grpc
     - go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
     - go generate
