@@ -1,12 +1,10 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
 
 package eventiumpb;
 
 service Eventium {
-    rpc PostEvent(PostEventRequest) returns (PostEventResponse) {}
-
+    rpc PostEvent(Eventum) returns (PostEventResponse) {}
     rpc GetEventByID(GetEventByIDRequest) returns (Eventum) {}
 
 //    rpc GetEventByNearbyLocation(Location) returns (GetEventByNearbyLocationResponse) {}
@@ -22,14 +20,10 @@ message GetEventByIDRequest {
 //    Eventum event = 2;
 //}
 
-message PostEventRequest {
-    google.protobuf.Timestamp timestamp = 1;
-    Eventum event = 2;
-}
 
 message PostEventResponse {
     bool success = 1;
-    bool eventID = 2;
+    string eventID = 2;
 }
 
 //=============================== OBJECTS
@@ -40,9 +34,8 @@ message Location {
 
 message Eventum {
     Location location = 16;
-
-    google.protobuf.Timestamp begin = 17;
-    google.protobuf.Timestamp end = 18;
+    int64 begin = 17;
+    int64 end = 18;
 
     string headline = 19;
     bytes mediaData = 20;
