@@ -24,8 +24,9 @@ build:
 
   ci:
     - export PATH=$PATH:$GOPATH/bin
-    - go get -u google.golang.org/grpc
-    - go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+    - go get -u -v google.golang.org/grpc
+    - go get -u -v github.com/golang/protobuf/{proto,protoc-gen-go}
+    - ls -al $GOPATH/bin
     - go generate
     - go get -t -v ./...
     - go test -v ./...
