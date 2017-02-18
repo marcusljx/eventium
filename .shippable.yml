@@ -30,11 +30,14 @@ build:
 
     - go get -u -v google.golang.org/grpc
     - go get -u -v github.com/golang/protobuf/{proto,protoc-gen-go}
+    - go get -u -v github.com/jstemmer/go-junit-report
     - export PATH=$PATH:$GOPATH/bin
 
     - go generate -x
     - go get -t -v ./...
-    - go test -v ./...
+
+    - mkdir -p shippable/testresults
+    - go test -v ./... | go-junit-report > shippable/testresults/report.xml
 
 #  post_ci:
 #    - #command1
