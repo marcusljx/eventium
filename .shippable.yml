@@ -10,8 +10,7 @@ go:
 #  - #any supported service
 #
 env:
-  - PROTOBUF_DL_URL=https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
-  - PROTOC_PATH=~/protoc
+  - PROTOBUF_DL_URL=https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip PROTOC_PATH=~/protoc
 
 #matrix:
 
